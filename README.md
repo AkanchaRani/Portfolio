@@ -1,6 +1,8 @@
 # 🚀 Akancha Rani – Software Engineer Portfolio
 
 🌐 Live Website: https://portfolio-xi-lake-44.vercel.app/
+🌐 Live Website: https://akancharani.github.io/Portfolio/
+
 
 ---
 
