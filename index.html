@@ -72,9 +72,9 @@ img { max-width: 100%; }
   background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   z-index: 9999;
-  transition: opacity 0.6s, visibility 0.6s;
+  transition: opacity 0.5s, visibility 0.5s;
 }
-#loader.hidden { opacity: 0; visibility: hidden; }
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-inner {
   display: flex; flex-direction: column; align-items: center; gap: 20px;
 }
@@ -1454,16 +1454,18 @@ footer span { color: var(--primary); }
 
 <script>
 // ===== LOADER =====
-document.addEventListener('DOMContentLoaded', () => {
-  const loader = document.getElementById('loader');
-
+window.addEventListener('load', () => {
   setTimeout(() => {
-    if (loader) {
-      loader.classList.add('hidden');
-    }
+    document.getElementById('loader').classList.add('hidden');
     startAnimations();
-  }, 1000);
+  }, 800);
 });
+
+// Safety fallback - force hide loader after 3 seconds no matter what
+setTimeout(() => {
+  document.getElementById('loader').classList.add('hidden');
+  startAnimations();
+}, 3000);
 
 // ===== PARTICLES =====
 (function() {
@@ -1727,17 +1729,29 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal({t
 
 // ===== DOWNLOAD RESUME =====
 function downloadResume(e) {
-  e.preventDefault();
-
+  if (e) e.preventDefault();
   const link = document.createElement('a');
-  link.href = 'AkanchaRani_CV.pdf';
+  link.href = 'AkanchaRani_CV.pdf'; // Apna PDF same folder mein rakho
   link.download = 'AkanchaRani_CV.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+function downloadResume_OLD(e) {
+  e.preventDefault();
+  const btn = e.currentTarget || e.target;
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;Generating...';
+  btn.disabled = true;
 
-  
+  // Load jsPDF dynamically
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  script.onload = function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const W = 210, ml = 15, mr = 195, lh = 6;
+    let y = 18;
 
     // Helper functions
     const text = (str, x, yy, opts) => doc.text(str, x, yy, opts);
