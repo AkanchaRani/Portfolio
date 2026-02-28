@@ -1730,21 +1730,14 @@ function downloadResume(e) {
   e.preventDefault();
 
   const link = document.createElement('a');
-  link.href = 'AkanchaRani_CV.pdf';   // <-- your original PDF file name
+  link.href = 'AkanchaRani_CV.pdf';
   link.download = 'AkanchaRani_CV.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
 
-  // Load jsPDF dynamically
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-  script.onload = function() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-    const W = 210, ml = 15, mr = 195, lh = 6;
-    let y = 18;
+  
 
     // Helper functions
     const text = (str, x, yy, opts) => doc.text(str, x, yy, opts);
