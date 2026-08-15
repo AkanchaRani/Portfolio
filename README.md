@@ -47,8 +47,25 @@ Features Implemented:
 
 akancha-portfolio  
 - index.html  
-- Akancha_Rani_CV.pdf  
+- AkanchaRani_CV.pdf
 - README.md  
+- portfolio-data.js
+- profile.jpg
+- AkanchaRani_Profile.pdf
+- assets/certificates/
+- assets/activities/
+
+### Updating your content
+
+The editable content for internships, certificates, and extracurricular activities lives in [`portfolio-data.js`](portfolio-data.js). Each item is a separate object with simple fields:
+
+- `internships`: role, company, dates, location, description, skills, and link.
+- `certificates`: name, issuer, year, verification link, and an optional public `image` URL.
+- `activities`: title, organisation, period, description, and Font Awesome icon name.
+
+For a certificate image, upload the image to a public location (for example, Google Drive with public access, GitHub, or Cloudinary) and paste the direct image URL into the `image` field. The page will automatically show the preview while the verification button opens the certificate link.
+
+Projects, education, skills, and contact details remain clearly labelled sections in `index.html`, so they can be edited independently without changing the JavaScript interactions.
 
 ---
 
