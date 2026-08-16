@@ -33,10 +33,6 @@ const portfolioData = {
       { label: "Projects Built", value: "8+", sub: "Java, Full Stack & Security" },
       { label: "Certifications", value: "12+", sub: "Verified Credentials" },
       { label: "Open Source", value: "GSSoC '26", sub: "Active Contributor" }
-    ],
-    avatarPills: [
-      { text: "MCA @ LPU • 8.87 CGPA", position: "top-right" },
-      { text: "Java 21 • Spring Boot", position: "bottom-left" }
     ]
   },
 
@@ -79,6 +75,7 @@ const portfolioData = {
       title: "SmartDocAI",
       category: "java-spring",
       categoryLabel: "Java & Spring Boot",
+      image: "assets/projects/smartdocai.jpg",
       summary: "Spring Boot technical documentation management system for organizing project metadata, database schemas, REST APIs, and automated PDF export.",
       details: "Built using a robust layered Controller-Service-Repository architecture with Java 21, Spring Boot, Spring Data JPA, and MySQL. Features include DTO validation, global exception handlers, automated markdown documentation generation, and PDF record export.",
       tags: ["Java 21", "Spring Boot", "Spring Data JPA", "MySQL", "Maven", "PDF Export"],
@@ -92,6 +89,7 @@ const portfolioData = {
       title: "AI Test Case Generator",
       category: "java-spring",
       categoryLabel: "Java & Spring AI",
+      image: "assets/projects/ai_testcase.jpg",
       summary: "Spring Boot application for generating, organizing, and managing structured software test cases from functional requirements.",
       details: "Utilizes Spring Web, JPA persistence, Lombok, and a dedicated AI service layer. Manages test case entities, priorities, severities, test types, and execution reports.",
       tags: ["Java", "Spring Boot", "JPA", "MySQL", "AI Service", "REST API"],
@@ -105,6 +103,7 @@ const portfolioData = {
       title: "CyberIDS / Cyber Attack Analyzer",
       category: "security",
       categoryLabel: "Security & Full Stack",
+      image: "assets/projects/cyber_attack.jpg",
       summary: "Intrusion detection and attack analytics dashboard transforming raw access logs into actionable threat intelligence.",
       details: "Simulates and detects malicious patterns such as SQL Injection attempts and XSS payloads. Features secure session authentication, real-time threat monitoring dashboard, IP blocking capability, and an admin audit panel.",
       tags: ["PHP", "MySQL", "JavaScript", "Security Analytics", "Apache", "HTML/CSS"],
@@ -118,6 +117,7 @@ const portfolioData = {
       title: "MedicVault Healthcare System",
       category: "java-spring",
       categoryLabel: "Core Java & OOP",
+      image: "assets/projects/medicvault.jpg",
       summary: "Comprehensive healthcare and prescription management system with role-based administration and patient records.",
       details: "Engineered in Core Java using OOP design patterns, Collections framework, and file persistence. Provides medicine inventory tracking, prescription logging, low-stock & expiry alerts, and comprehensive health summary reports.",
       tags: ["Core Java", "OOP", "Collections Framework", "File Handling", "CLI Architecture"],
@@ -131,6 +131,7 @@ const portfolioData = {
       title: "SpendWise Finance Manager",
       category: "fullstack",
       categoryLabel: "Full Stack Web",
+      image: "assets/projects/spendwise.svg",
       summary: "Personal finance and expense management platform with interactive spending analytics, custom budgets, and warning alerts.",
       details: "Full-stack web application featuring secure user auth, expense CRUD operations, categorized budgets, monthly threshold notifications, dynamic filters, and visual data insights using Chart.js.",
       tags: ["PHP", "MySQL", "JavaScript", "Chart.js", "Responsive UI"],
@@ -144,6 +145,7 @@ const portfolioData = {
       title: "AR-PhoneBook Web App",
       category: "fullstack",
       categoryLabel: "Node & Express",
+      image: "assets/projects/ar_phonebook.svg",
       summary: "Full-stack phonebook contact management web application with clean UI and RESTful backend.",
       details: "Constructed with Node.js, Express.js, and MySQL. Implements secure environment variable handling, full contact CRUD workflows, instant search, and a responsive frontend.",
       tags: ["Node.js", "Express.js", "MySQL", "REST API", "JavaScript"],
@@ -157,6 +159,7 @@ const portfolioData = {
       title: "Car Rental Management System",
       category: "cpp",
       categoryLabel: "C++ & Systems",
+      image: "assets/projects/car_rental.svg",
       summary: "Console-based C++ vehicle rental and customer booking system with file-based persistence.",
       details: "Demonstrates advanced C++ OOP principles (encapsulation, abstraction, classes), vehicle availability tracking, rental calculation, return workflows, and revenue reporting.",
       tags: ["C++", "OOP", "File Handling", "Data Structures", "GCC/MinGW"],
@@ -170,6 +173,7 @@ const portfolioData = {
       title: "Automated File Organizer",
       category: "automation",
       categoryLabel: "Automation & Shell",
+      image: "assets/projects/file_organizer.svg",
       summary: "Bash automation utility that sorts and categorizes files into clean directory structures with ShellCheck CI validation.",
       details: "Handles filenames with complex spaces, avoids file collisions, executes fast batch sorting, and includes GitHub Actions CI validation for POSIX compliance.",
       tags: ["Bash", "Linux", "Git Bash", "Automation", "CI/CD"],
@@ -192,49 +196,8 @@ const portfolioData = {
         "Created stakeholder mapping documentation, lead database management, and daily execution tracking.",
         "Coordinated with cross-functional team members to ensure milestones were met within deadlines."
       ],
-      skills: ["Market Research", "Project Management", "Stakeholder Mapping", "Data Organization"],
+      skills: ["Market Research", "Project Management", "Stakeholder Mapping", "Data Organization", "SaaS Workflow"],
       icon: "fa-briefcase"
-    },
-    {
-      role: "Open Source Contributor",
-      company: "GirlScript Summer of Code (GSSoC 2026)",
-      period: "2026",
-      location: "Remote / Open Source",
-      type: "Open Source",
-      bullets: [
-        "Selected as an open-source contributor, collaborating with global developers on real-world repositories.",
-        "Strengthened practical Git/GitHub collaboration workflows, pull request reviews, and code contributions.",
-        "Contributed bug fixes, documentation enhancements, and feature implementations."
-      ],
-      skills: ["Git", "GitHub", "Open Source", "Collaboration", "Code Reviews"],
-      icon: "fa-code-branch"
-    },
-    {
-      role: "Club Coordinator",
-      company: "The Expressionist Club, LPU",
-      period: "Sep 2025 – Present",
-      location: "LPU, Phagwara, Punjab",
-      type: "Leadership",
-      bullets: [
-        "Organize and host interactive English-learning activities and public speaking sessions for student learners.",
-        "Lead a core team of facilitators to drive engaging group discussions, confidence building, and peer learning.",
-        "Managed event schedules, audience engagement, and post-session feedback loops."
-      ],
-      skills: ["Leadership", "Public Speaking", "Event Management", "Team Building"],
-      icon: "fa-comments"
-    },
-    {
-      role: "Campus CEO / Ambassador",
-      company: "CashKaro Campus Entrepreneurship",
-      period: "2025 – 2026",
-      location: "LPU Campus",
-      type: "Campus Leadership",
-      bullets: [
-        "Drove brand awareness and outreach campaigns for student-centric digital initiatives across campus.",
-        "Honed communication, strategic outreach, leadership, and community networking skills."
-      ],
-      skills: ["Campus Outreach", "Marketing Strategy", "Networking", "Initiative Taking"],
-      icon: "fa-bullhorn"
     }
   ],
 

@@ -664,99 +664,36 @@ button, input, textarea {
 .hero-showcase {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
-.avatar-card {
+.hero-image-wrapper {
   position: relative;
-  width: 320px;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  text-align: center;
-  transition: var(--transition);
-}
-
-.avatar-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: var(--glow-primary), var(--shadow-lg);
-}
-
-.avatar-img-container {
-  width: 170px;
-  height: 170px;
-  margin: 0 auto 1.25rem;
-  border-radius: var(--radius-full);
+  width: 340px;
+  height: 340px;
+  border-radius: 36px;
   padding: 6px;
-  background: var(--gradient-primary);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
-  position: relative;
-}
-
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  background: #1e293b;
-  border: 3px solid var(--bg-main);
-}
-
-.avatar-name {
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 0.3rem;
-}
-
-.avatar-role {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-/* Clean Avatar Floating Pills */
-.avatar-pill {
-  position: absolute;
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: var(--text-main);
-  font-size: 0.82rem;
-  font-weight: 600;
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.28), 0 0 35px rgba(139, 92, 246, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  z-index: 10;
-  animation: float 4s ease-in-out infinite;
+  justify-content: center;
 }
 
-.avatar-pill.top-right {
-  top: 15px;
-  right: -25px;
-  animation-delay: 0s;
+.hero-image-wrapper:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 65px rgba(59, 130, 246, 0.42), 0 0 50px rgba(139, 92, 246, 0.32);
 }
 
-.avatar-pill.bottom-left {
-  bottom: 25px;
-  left: -30px;
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+.hero-profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  background: var(--bg-secondary);
+  display: block;
 }
 
 /* ==========================================================
@@ -764,7 +701,7 @@ button, input, textarea {
  * ========================================================== */
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 4rem;
   padding: 1.75rem 2rem;
@@ -1090,10 +1027,9 @@ button, input, textarea {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.85rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   position: relative;
@@ -1102,39 +1038,53 @@ button, input, textarea {
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(59, 130, 246, 0.4);
   box-shadow: var(--glow-primary), var(--shadow-md);
 }
 
-.project-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
+.project-img-box {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  overflow: hidden;
+  background: #0f172a;
 }
 
-.project-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--primary-dim);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.project-category-badge {
-  font-size: 0.76rem;
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-category-badge-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 0.32rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 0.3rem 0.8rem;
-  border-radius: var(--radius-full);
-  background: rgba(139, 92, 246, 0.15);
-  color: var(--secondary);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-body {
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .project-title {
@@ -1142,7 +1092,7 @@ button, input, textarea {
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.55rem;
 }
 
 .project-summary {
@@ -1245,49 +1195,67 @@ button, input, textarea {
   color: var(--text-main);
 }
 
-.skill-items-list {
+.skill-tags-list {
   display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.skill-item {
+.skill-tag-badge {
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
 }
 
-.skill-info {
-  display: flex;
-  justify-content: space-between;
+.skill-tag-badge:hover {
+  background: var(--primary-dim);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.skill-name {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-main);
 }
 
-.skill-level {
-  font-family: var(--font-mono);
+.skill-tier {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+}
+
+.skill-tier.expert {
+  background: rgba(59, 130, 246, 0.15);
   color: var(--primary);
+  border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
-.skill-bar-track {
-  width: 100%;
-  height: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-full);
-  overflow: hidden;
+.skill-tier.advanced {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--secondary);
+  border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
-[data-theme="light"] .skill-bar-track {
-  background: #e2e8f0;
+.skill-tier.proficient {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-.skill-bar-fill {
-  height: 100%;
-  border-radius: var(--radius-full);
-  background: var(--gradient-primary);
-  width: 0%;
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+[data-theme="light"] .skill-tag-badge {
+  background: #f8fafc;
+}
+[data-theme="light"] .skill-tag-badge:hover {
+  background: var(--primary-dim);
 }
 
 /* Core Skills Marquee Chip Cloud */
@@ -2070,16 +2038,10 @@ button, input, textarea {
     padding: 1.25rem;
   }
 
-  .avatar-card {
+  .hero-image-wrapper {
     width: 280px;
-  }
-
-  .avatar-pill.top-right {
-    right: -10px;
-  }
-
-  .avatar-pill.bottom-left {
-    left: -10px;
+    height: 280px;
+    border-radius: 30px;
   }
 }
 
@@ -2096,8 +2058,9 @@ button, input, textarea {
     display: none !important;
   }
 
-  .avatar-card {
-    width: 250px;
-    padding: 1.25rem;
+  .hero-image-wrapper {
+    width: 220px;
+    height: 220px;
+    border-radius: 24px;
   }
 }
